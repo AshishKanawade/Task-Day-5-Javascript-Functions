@@ -203,22 +203,297 @@ console.log(even4);
 
 
 // Write a function called “areBothOdd”.
-
+function areBothOdd(num1, num2) {
+    if (num1 % 2 != 0 && num2 % 2 != 0) { 
+        return true 
+    } else { 
+        return false 
+    }
+}
+var odd1 = areBothOdd(1, 3);
+var odd2 = areBothOdd(1, 4);
+var odd3 = areBothOdd(2, 3);
+var odd4 = areBothOdd(0, 0);
+console.log(odd1);
+console.log(odd2);
+console.log(odd3);
+console.log(odd4);
 
 
 
 // Write a function called “getFullName”.
-
+function getFullName(firstName, lastName) {
+    if ((firstName != '') && (lastName != '')) {
+    return firstName + " " + lastName
+    } else { 
+        return firstName + lastName 
+    }
+}
+var fullName1 = getFullName("GUVI", "GEEK");
+var fullName2 = getFullName("GUVI", "");
+var fullName3 = getFullName("", "GEEK");
+var fullName4 = getFullName("","");
+console.log(fullName1);
+console.log(fullName2);
+console.log(fullName3);
+console.log(fullName4);
 
 
 
 // Write a function called “getLengthOfWord”.
-
+function getLengthOfWord(word1) {
+    if (typeof(word1) == "string") { 
+        return word1.length 
+    }
+    else { 
+        return -1 
+    }
+}
+var length1 = getLengthOfWord("GUVI");
+var length2 = getLengthOfWord("");
+var length3 = getLengthOfWord();
+var length4 = getLengthOfWord(9);
+console.log(length1);
+console.log(length2);
+console.log(length3);
+console.log(length4);
 
 
 
 // Write a function called “isSameLength”.
+function isSameLength(word1, word2) {
+    if (word1.length == word2.length) {
+        return true;
+    } else {
+        return false;
+    }
+}
+var length1 = isSameLength("GUVI", "GEEK");
+console.log(length1);
+
+
+
+// calculate the distance between two points defined by their x, y coordinates
+console.log(getDistance(100, 100, 400, 300));
+function getDistance(x1, y1, x2, y2) {
+    let y = x2 - x1;
+    let x = y2 - y1;
+    
+    return Math.sqrt(x * x + y * y);
+}
+
+
+
+// Write a function called “getNthElement”.
+function getNthElement(array,n) {
+    if (array.lengh == 0) {
+        return 0;
+    } else {
+        return array[n];
+    }
+}
+var arr = getNthElement([1, 3, 5], 1);
+console.log(arr);
+
+
+
+// Write a function called “getLastElement”.
+function getLastElement(array) {
+    if (array.length == 0) {
+        return -1;
+    } else {
+        return array[array.length - 1];
+    }
+}
+var arr = getLastElement([1, 2, 3, 4]);
+console.log(arr);
+
+
+
+// Write a function called “getProperty”.
+var obj = {
+    mykey: "value"
+};
+function getProperty(obj, key) {
+   return obj[key] 
+}
+var result1 = getProperty(obj,'mykey');
+var result2 = getProperty(obj,'dummykey');
+console.log(result1);
+console.log(result2);
+
+
+
+// Write a function called “addProperty”.
+var obj = {
+    mykey: "value"
+};
+function addProperty(obj, key) {
+    obj[key] = true; 
+    return obj
+}
+var result = addProperty(obj, "mykey");
+console.log(result);
+
+
+
+// Write a function called “removeProperty”
+
+function removeProperty(obj, key){
+    delete obj.key;
+}
+var remove = removeProperty(obj, "name");
+console.log(remove);
+
+
+
+// Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers
+var arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+var ar2 = function countPositivesSumNegatives(arr) {
+    var count = 0;
+    var sum = 0;
+    var result = [];
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            count++;
+        } else {
+            sum = sum + arr[i];
+        }
+    }
+    result.push(count);
+    result.push(sum);
+    return result;
+}
+var num = ar2(arr);
+console.log(num);
+
+
+
+// Create a function that receives an array of numbers and returns an array containing only the positive numbers
+var ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+function getPositives(ar) {
+    let result = []
+    for (let i = 0; i < ar.length; i++) {
+        if (ar[i] > 0) {
+            result.push(ar[i])
+        }
+    }
+    return result
+}
+var ar2 = getPositives(ar);
+console.log(ar2);
+
+
+
+// Write a function `powersOfTwo`
+function powersOfTwo(n) {
+    var res = [];
+    for (i = 0; i <= n; i++) {
+        res.push(Math.pow(2, i));
+    }
+    return res;
+}
+var result1 = powersOfTwo(0);
+var result2 = powersOfTwo(1);
+var result3 = powersOfTwo(2);
+console.log(result1);
+console.log(result2);
+console.log(result3);
+
+
+
+// Find the maximum number in an array of numbers
+var ar = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+function findMax(ar) {
+    var maxNum = 0;
+    for (i = 0; i < ar.length; i++) {
+        if (ar[i] > maxNum) {
+            maxNum = ar[i];
+        }
+    }
+    return maxNum;
+}
+var max = findMax(ar);
+console.log("Max: ", max);
+
+
+
+// Print the first 100 prime numbers
+printPrimes(100);
+function printPrimes(nPrimes) {
+    var n = 0;
+    var i = 2;
+
+    while(n < nPrimes) {
+        if (isPrime(i)) {
+            console.log(n, " → ", i);
+            n++;
+        }
+
+        i++;
+    }
+}
+function isPrime(n) {
+    if (n != 1 && n != 0) {
+        for (let i = 2; i <= n / 2; i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        };
+        return true;
+    }
+    return false;
+}
+
+
+console.log(getPrimes(10, 100));
+function getPrimes(nPrimes, startAt) {
+    var n = 0;
+    var i = startAt;
+
+    while (n < nPrimes) {
+        if (isPrime(i)) {
+            console.log(n, " → ", i);
+            n++;
+        }
+
+        i++;
+    }
+}
+function isPrime(n) {
+    if (n != 1 && n != 0) {
+        for (let i = 2; i <= n / 2; i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        };
+        return true;
+    }
+    return false
+}
+// Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”
+console.log(getPrimes(10, 100));
+function getPrimes(nPrimes, startAt)
+{
+// your code here
+ isPrime(i)
+}
+// Returns true if a number is prime
+function isPrime(n)
+{
+ // your code here
+}
+
+
+
+// Reverse a string
 
 
 
 
+// Create a function that will merge two arrays and return the result as a new array
+
+
+
+
+// Calculate the sum of numbers received in a comma delimited string
