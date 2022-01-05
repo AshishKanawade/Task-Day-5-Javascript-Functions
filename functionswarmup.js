@@ -446,7 +446,9 @@ function isPrime(n) {
 }
 
 
-console.log(getPrimes(10, 100));
+
+// Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”
+var result = getPrimes(10, 100);
 function getPrimes(nPrimes, startAt) {
     var n = 0;
     var i = startAt;
@@ -471,29 +473,42 @@ function isPrime(n) {
     }
     return false
 }
-// Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”
-console.log(getPrimes(10, 100));
-function getPrimes(nPrimes, startAt)
-{
-// your code here
- isPrime(i)
-}
-// Returns true if a number is prime
-function isPrime(n)
-{
- // your code here
-}
 
 
 
 // Reverse a string
-
+var s = reverseString("JavaScript");
+console.log(s);
+function reverseString(s) {
+    var arr = s.split('').reverse().join('');
+    return arr
+}
 
 
 
 // Create a function that will merge two arrays and return the result as a new array
-
+var ar1 = [1, 2, 3];
+var ar2 = [4, 5, 6];
+var ar = mergeArrays(ar1, ar2);
+console.log(ar);
+function mergeArrays(ar1, ar2) {
+    for (let i = 0; i<ar2.length; i++) {
+        ar1.push(ar2[i]);
+    }
+    return ar1;
+}
 
 
 
 // Calculate the sum of numbers received in a comma delimited string
+var num = "1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9";
+var s = num.split(",");
+function sumCSV(s) {
+    var sum = 0;
+    for (i = 0; i < s.length; i++) {
+        sum = sum + (+s[i]);
+    }
+    return sum;
+}
+var sum = sumCSV(s);
+console.log(sum);
